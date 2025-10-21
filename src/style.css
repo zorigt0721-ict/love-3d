@@ -1,0 +1,124 @@
+:root {
+  color-scheme: dark;
+  --bg-color: #0b0e14;
+  --panel-bg: rgba(16, 21, 32, 0.55);
+  --panel-border: rgba(255, 255, 255, 0.12);
+  --accent: #ff6584;
+  --text: #f7f9fc;
+  --muted: rgba(247, 249, 252, 0.75);
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 101, 132, 0.08), transparent 60%),
+    radial-gradient(circle at 80% 10%, rgba(110, 180, 255, 0.08), transparent 55%),
+    var(--bg-color);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+#love-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+}
+
+main {
+  position: relative;
+  display: grid;
+  gap: 8vh;
+  padding: 15vh clamp(1.5rem, 5vw, 6rem) 20vh;
+}
+
+.panel {
+  position: relative;
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: clamp(1rem, 2vw, 2.5rem);
+  backdrop-filter: blur(18px);
+  background: linear-gradient(145deg, rgba(16, 21, 32, 0.8), rgba(16, 21, 32, 0.4));
+  border: 1px solid var(--panel-border);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  padding: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.panel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.08), transparent 55%);
+}
+
+.panel .content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 1.5rem;
+}
+
+h1 {
+  font-size: clamp(2.8rem, 6vw, 4.2rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+h2 {
+  font-size: clamp(2.1rem, 4.5vw, 3.2rem);
+  font-weight: 600;
+}
+
+p {
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+#share-button {
+  justify-self: center;
+  margin-top: 0.5rem;
+  padding: 0.95rem 2.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: linear-gradient(120deg, rgba(255, 101, 132, 0.9), rgba(255, 150, 180, 0.65));
+  color: var(--text);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 15px 30px rgba(255, 101, 132, 0.28);
+}
+
+#share-button:hover,
+#share-button:focus-visible {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(255, 101, 132, 0.35);
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  main {
+    gap: 6vh;
+    padding: 12vh 1.5rem 16vh;
+  }
+
+  .panel {
+    min-height: 70vh;
+    padding: clamp(2rem, 7vw, 3rem);
+  }
+}
