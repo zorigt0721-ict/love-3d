@@ -1,0 +1,139 @@
+:root {
+  color-scheme: dark;
+  --bg: #0b0e14;
+  --panel-bg: rgba(18, 22, 33, 0.6);
+  --panel-border: rgba(255, 255, 255, 0.1);
+  --accent: #f36ab7;
+  --text: #ffffff;
+  --max-width: min(90vw, 60rem);
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+body {
+  position: relative;
+  color: var(--text);
+}
+
+#love-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.scroll-container {
+  position: relative;
+  z-index: 1;
+}
+
+.panel {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 4rem 1.5rem;
+  backdrop-filter: blur(12px);
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.1), rgba(12, 16, 24, 0.4));
+  border: 1px solid var(--panel-border);
+  border-radius: 28px;
+  margin: clamp(2rem, 10vw, 6rem) auto;
+  width: min(92vw, 960px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+}
+
+.panel--hero {
+  margin-top: clamp(3rem, 15vh, 8rem);
+}
+
+.panel--finale {
+  text-align: center;
+}
+
+.panel__content {
+  max-width: var(--max-width);
+}
+
+h1,
+h2,
+p {
+  margin: 0 0 1rem;
+}
+
+h1 {
+  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.2;
+}
+
+p {
+  font-size: clamp(1rem, 2.2vw, 1.3rem);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.lede {
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.share-btn {
+  margin-top: 1.5rem;
+  padding: 0.85rem 1.8rem;
+  border-radius: 999px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--bg);
+  background: linear-gradient(130deg, #f36ab7, #fbb26a);
+  box-shadow: 0 15px 35px rgba(243, 106, 183, 0.35);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.share-btn:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.85);
+  outline-offset: 4px;
+}
+
+.share-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(243, 106, 183, 0.4);
+}
+
+@media (max-width: 768px) {
+  .panel {
+    margin: clamp(1.5rem, 10vh, 3rem) auto;
+    padding: 3rem 1.25rem;
+  }
+
+  .panel--hero {
+    margin-top: clamp(2rem, 12vh, 4rem);
+  }
+}
